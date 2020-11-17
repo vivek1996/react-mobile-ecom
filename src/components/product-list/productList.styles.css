@@ -1,0 +1,7 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 70px 10px;
+  background-color: #f1f3f6;
+  padding-bottom: 10px;
+}
