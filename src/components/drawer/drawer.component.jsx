@@ -3,8 +3,15 @@ import Pagination from '@material-ui/lab/Pagination';
 import './drawer.styles.css';
 import productData from '../../products';
 import ProductListComponent from '../product-list/productList.component';
-import { uniq } from 'lodash';
-import { Grid } from '@material-ui/core';
+import { uniq, sortBy, reverse } from 'lodash';
+import {
+  Grid,
+  Radio,
+  FormControl,
+  FormControlLabel,
+  RadioGroup,
+  FormLabel,
+} from '@material-ui/core';
 import { sortArrayInDesc, filterArray } from '../../utils';
 
 import DataContext from '../../context';
@@ -24,6 +31,7 @@ const Container = () => {
   const [osFilter, setOsFilter] = useState([]);
   const [ramFilter, setRamFilter] = useState([]);
   const [filteredData, setFilterData] = useState(productData);
+  const [selectedRadio, setSortByRadio] = useState('default');
 
   const setFilters = () => {
     const OS_TYPES = uniq(productData.map((product) => product.os)).sort();
@@ -132,6 +140,28 @@ const Container = () => {
     filterItems();
   }, [romFilter, osFilter, ramFilter]);
 
+  const handleSortByChange = (event) => {
+    const value = event.target.value;
+    const sortedData = sortBy(filteredData, 'price');
+    setSortByRadio(value);
+    setPage((state) => ({ ...state, page: 1 }));
+    switch (value) {
+      case 'default':
+        break;
+      case 'lth':
+        setProductList(sortedData.slice(0, defaultCount));
+        setFilterData(sortedData);
+        break;
+      case 'htl':
+        reverse(sortedData);
+        setProductList(sortedData.slice(0, defaultCount));
+        setFilterData(sortedData);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -142,6 +172,35 @@ const Container = () => {
       <Grid container={true}>
         <Grid item xs={2}>
           <Grid container style={{ marginTop: '100px' }}>
+            <Grid item xs={12}>
+              <FormControl component="fieldset">
+                <FormLabel component="legend" style={{ textAlign: 'left' }}>
+                  Sort By
+                </FormLabel>
+                <RadioGroup
+                  aria-label="sortby"
+                  name="sortby"
+                  value={selectedRadio}
+                  onChange={handleSortByChange}
+                >
+                  {/* <FormControlLabel
+                    value="default"
+                    control={<Radio />}
+                    label="Popularity"
+                  /> */}
+                  <FormControlLabel
+                    value="lth"
+                    control={<Radio color="primary" />}
+                    label="Price -- Low to High"
+                  />
+                  <FormControlLabel
+                    value="htl"
+                    control={<Radio color="primary" />}
+                    label="Price -- High to Low"
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
             <Grid item xs={12}>
               <FilterComponent
                 title="RAM"
