@@ -36,6 +36,9 @@ const Container = () => {
   const [selectedRadio, setSortByRadio] = useState('default');
   const [selectedPriceRange, setPriceRange] = useState('0');
 
+  /**
+   * @description Method which is called to set the Filters
+   */
   const setFilters = () => {
     const OS_TYPES = uniq(productData.map((product) => product.os)).sort();
     const RAM_TYPES = sortArrayInDesc(
@@ -67,6 +70,9 @@ const Container = () => {
     setProductList(productData.slice(defaultPage - 1, defaultCount));
   }, []);
 
+  /**
+   * @description Handler to update the Pagination
+   */
   const handlePaginationChange = (event, value) => {
     const temp = filteredData.slice(
       (value - 1) * defaultCount,
@@ -75,6 +81,10 @@ const Container = () => {
     setProductList(temp);
     setPage((state) => ({ ...state, page: value }));
   };
+
+  /**
+   * @description Handler for updating the filters state
+   */
 
   const handleFilterChange = (name, checked, type) => {
     switch (type) {
@@ -104,6 +114,9 @@ const Container = () => {
     }
   };
 
+  /**
+   * @description Trigerred when the filters are updated
+   */
   const filterItems = () => {
     // if (romFilter.length && osFilter.length && ramFilter.length) {
     // console.log({ romFilter, osFilter, ramFilter });
@@ -161,6 +174,9 @@ const Container = () => {
     filterItems();
   }, [romFilter, osFilter, ramFilter]);
 
+  /**
+   * @description Handler to Sort the Products based on Selection
+   */
   const handleSortByChange = (event) => {
     const value = event.target.value;
     const sortedData = sortBy(filteredData, 'price');
@@ -189,6 +205,9 @@ const Container = () => {
   //   }
   // }, [filteredData]);
 
+  /**
+   * @description Handler to update the state of the Price range selector
+   */
   const handlePriceRangeChange = (event) => {
     const { value } = event.target;
     setPriceRange(value);
