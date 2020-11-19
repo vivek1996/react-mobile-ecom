@@ -6,7 +6,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '6',
     storage: '20',
-    price: 6589,
+    price: 65890,
     stock: 26,
   },
   {
@@ -16,7 +16,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '8',
     storage: '256',
-    price: 7178,
+    price: 71780,
     stock: 107,
   },
   {
@@ -36,7 +36,7 @@ const productData = [
     os: 'ANDROID',
     memory: '10',
     storage: '20',
-    price: 5200,
+    price: 52000,
     stock: 65,
   },
   {
@@ -46,7 +46,7 @@ const productData = [
     os: 'ANDROID',
     memory: '6',
     storage: '20',
-    price: 5077,
+    price: 50770,
     stock: 56,
   },
   {
@@ -56,7 +56,7 @@ const productData = [
     os: 'ANDROID',
     memory: '8',
     storage: '20',
-    price: 9522,
+    price: 95220,
     stock: 184,
   },
   {
@@ -96,7 +96,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '2',
     storage: '256',
-    price: 9527,
+    price: 95270,
     stock: 77,
   },
   {
@@ -136,7 +136,7 @@ const productData = [
     os: 'IOS',
     memory: '6',
     storage: '256',
-    price: 6970,
+    price: 69700,
     stock: 12,
   },
   {
@@ -156,7 +156,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '8',
     storage: '20',
-    price: 8987,
+    price: 89870,
     stock: 138,
   },
   {
@@ -216,7 +216,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '6',
     storage: '64',
-    price: 8277,
+    price: 82770,
     stock: 47,
   },
   {
@@ -236,7 +236,7 @@ const productData = [
     os: 'ANDROID',
     memory: '10',
     storage: '124',
-    price: 5063,
+    price: 50630,
     stock: 193,
   },
   {
