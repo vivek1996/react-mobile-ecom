@@ -406,7 +406,7 @@ const productData = [
     os: 'WINDOWS',
     memory: '8',
     storage: '20',
-    price: 6457,
+    price: 6457000,
     stock: 16,
   },
   {

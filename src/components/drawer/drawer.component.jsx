@@ -144,6 +144,8 @@ const Container = () => {
       if (priceRange.length === 2) {
         filters.price = (price) =>
           Number(priceRange[0]) < price && Number(priceRange[1]) > price;
+      } else if (Number(priceRange[0])) {
+        filters.price = (price) => Number(priceRange[0]) < price;
       }
       // console.log(priceRange, filters);
 
